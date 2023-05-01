@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/new'
+  get 'users/create'
   resources :exercises
   #get 'login', to: 'sessions#new'
   #post 'login', to: 'sessions#create'
