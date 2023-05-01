@@ -1,3 +1,9 @@
 <%= render "shared/navbar" %>
 
+<% flash.each do |type, msg| %>
+    <div class="w-25 alert alert-success d-flex justify-content-center mx-auto">
+    <%= msg %>
+  </div>
+<% end %>
+
 <h1 class="text-center my-3">Hello and welcome to <strong>Exercise Tracker</strong></h1>

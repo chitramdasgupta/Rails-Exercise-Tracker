@@ -2,13 +2,13 @@
 
 <h1 class="text-center my-3">Log in to <strong>Exercise Tracker</strong></h1>
 
-<div class="d-flex justify-content-center">
-
 <% flash.each do |type, msg| %>
-  <div class="alert alert-danger">
+  <div class="w-25 alert alert-danger d-flex justify-content-center mx-auto">
     <%= msg %>
   </div>
 <% end %>
+
+<div class="d-flex justify-content-center">
 
 <%= form_with url: sessions_create_path do |f| %>
   <%= f.label :email%><br>
