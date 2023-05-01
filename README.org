@@ -1,3 +1,9 @@
 #+TITLE: Exercise Tracker app
 #+AUTHOR: Chitram Dasgupta
 #+DATE: <2023-05-01 Mon>
+
+* Create the root page
+
+#+BEGIN_SRC sh
+ rails g controller homes index
+#+END_SRC
