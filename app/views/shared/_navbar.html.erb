@@ -16,7 +16,11 @@
       </ul>
 
       <div class="d-flex">
+      <% unless session[:user_id]%>
         <%= link_to "Log in", sessions_new_path , class: "nav-link" %>
+        <% else %>
+          <%= link_to "Log out", sessions_destroy_path , class: "nav-link" %>
+      <% end %>
       </div>
     </div>
   </div>
