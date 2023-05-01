@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to exercises_path, notice: "Logged in!"
     else
       flash[:error] = "Invalid email or password"
       render :new, status: :unprocessable_entity
@@ -15,5 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
+    redirect_to homes_index_path, notice: "Logged out!"
   end
 end

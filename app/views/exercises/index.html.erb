@@ -1,2 +1,13 @@
-<h1>Exercises#index</h1>
-<p>Find me in app/views/exercises/index.html.erb</p>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-danger">
+    <%= msg %>
+  </div>
+<% end %>
+
+<br>
+
+<h1 class="mx-3 my-3">Welcome</h1>
+
+<h2 class="max-3">Your exercises: </h2>
+
+<%= link_to "logout", sessions_destroy_path %>
