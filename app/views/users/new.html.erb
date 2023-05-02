@@ -1,10 +1,6 @@
 <h1 class="text-center my-4">Sign up to <strong>Exercise Tracker</strong></h1>
 
-<% flash.each do |type, msg| %>
-  <div class="w-25 alert alert-danger d-flex justify-content-center mx-auto my-2">
-    <%= msg %>
-  </div>
-<% end %>
+<%= render 'shared/flash', status: 'danger' %>
 
 <div class="d-flex justify-content-center">
 <%= form_with model: @user, url: users_create_path do |f| %>
