@@ -14,6 +14,7 @@ class ExercisesController < ApplicationController
       flash[:success] = "Exercise added"
       redirect_to exercises_path
     else
+      flash[:error] = "The name should be present and calories should be a more than 0"
       render :new, status: :unprocessable_entity
     end
   end
@@ -32,6 +33,7 @@ class ExercisesController < ApplicationController
     if @exercise.update(exercise_params)
       redirect_to exercises_path, notice: "Exercise updated"
     else
+      flash[:error] = "The name should be present and calories should be a more than 0"
       render :edit, status: :unprocessable_entity
     end
   end
