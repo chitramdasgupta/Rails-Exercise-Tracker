@@ -1,14 +1,14 @@
 class ExercisesController < ApplicationController
   def index
-    @exercises = Exercise.all
+    @exercises = current_user.exercises
   end
 
   def new
-    @exercise = Exercise.new
+    @exercise = current_user.exercises.new
   end
 
   def create
-    @exercise = Exercise.new(exercise_params)
+    @exercise = current_user.exercises.new(exercise_params)
 
     if @exercise.save
       flash[:success] = "Exercise added"
@@ -20,15 +20,15 @@ class ExercisesController < ApplicationController
   end
 
   def show
-    @exercise = Exercise.find(params[:id])
+    @exercise = current_user.exercises.find(params[:id])
   end
 
   def edit
-    @exercise = Exercise.find(params[:id])
+    @exercise = current_user.exercises.find(params[:id])
   end
 
   def update
-    @exercise = Exercise.find(params[:id])
+    @exercise = current_user.exercises.find(params[:id])
 
     if @exercise.update(exercise_params)
       redirect_to exercises_path, notice: "Exercise updated"
@@ -39,7 +39,7 @@ class ExercisesController < ApplicationController
   end
 
   def destroy
-    @exercise = Exercise.find(params[:id])
+    @exercise = current_user.exercises.find(params[:id])
     @exercise.destroy
     flash[:notice] = "The exercise was deleted"
     redirect_to exercises_path
