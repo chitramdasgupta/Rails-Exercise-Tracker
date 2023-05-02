@@ -1,2 +1,5 @@
-<h1>Exercises#show</h1>
-<p>Find me in app/views/exercises/show.html.erb</p>
+<%= link_to "Back to all exercises", exercises_path, class: "mx-3" %>
+
+<h1 class="display-2 mx-3 my-4"><%= @exercise.name %></h5>
+<span class="display-4 mx-4"><%= @exercise.calories %></span>
+<span>Calories</span>
