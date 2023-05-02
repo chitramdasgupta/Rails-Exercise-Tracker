@@ -1,2 +1,21 @@
-<h1>Exercises#edit</h1>
-<p>Find me in app/views/exercises/edit.html.erb</p>
+<h1 class="mx-3 my-3">Edit exercise</h1>
+
+<%= link_to "Back to all exercises", exercises_path, class: "mx-3" %>
+
+<% flash.each do |type, msg| %>
+  <div class="w-25 alert alert-danger d-flex justify-content-center mx-auto">
+    <%= msg %>
+  </div>
+<% end %>
+
+<div class="mx-3 my-4">
+<%= form_with model:@exercise do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br><br>
+
+  <%= f.label :calories %><br>
+  <%= f.number_field :calories, in: 0..100, step: 1 %><br><br>
+
+  <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>
+</div>
