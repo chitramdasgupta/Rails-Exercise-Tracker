@@ -3,3 +3,9 @@
 <h1 class="display-2 mx-3 my-4"><%= @exercise.name %></h5>
 <span class="display-4 mx-4"><%= @exercise.calories %></span>
 <span>Calories</span>
+
+<br>
+
+<%= link_to edit_exercise_path(@exercise), class: "btn btn-primary mx-3 my-3" do %>
+  Edit <i class="bi bi-pencil"></i>
+<% end %>

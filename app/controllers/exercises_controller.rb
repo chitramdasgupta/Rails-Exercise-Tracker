@@ -39,6 +39,10 @@ class ExercisesController < ApplicationController
   end
 
   def destroy
+    @exercise = Exercise.find(params[:id])
+    @exercise.destroy
+    flash[:notice] = "The exercise was deleted"
+    redirect_to exercises_path
   end
 
   private
