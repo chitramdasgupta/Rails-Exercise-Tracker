@@ -2,9 +2,11 @@
 
 <br>
 
-<h1 class="mx-3 my-3">Welcome <%= current_user.email %></h1>
+<h1 class="mx-3">Welcome <%= current_user.email %></h1>
 
-<h2 class="mx-3">Your exercises: </h2>
+<%= link_to 'Profile', profile_path(current_user), class: "mx-3" %>
+
+<h2 class="mx-3 my-3">Your exercises: </h2>
 
 <%= link_to new_exercise_path, class: "btn btn-info mx-4 my-1" do %>
   New exercise <i class="bi bi-plus-circle-dotted"></i>

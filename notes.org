@@ -1,3 +1,45 @@
 #+TITLE: Exercise tracker notes
 #+AUTHOR: Chitram Dasgupta
 #+DATE: <2023-05-01 Mon>
+
+* Authentication part
+
+** Add =remember me= functionality
+
+** OPTIONAL: Add forgot password functionality
+
+*** Will take an email
+
+*** Send an email with password reset link (valid for 30 minutes)
+
+*** Clicking the link with take us to a page with new password and confirmation inputs
+
+* User profile
+
+** There should be a profile page having:
+
+*** profile picture
+
+*** Username
+
+*** Phone number
+
+** There should also be an edit profile page
+
+** Allow edit password
+
+* Exercises
+
+** Display the last_updated value
+
+** Make a page for quick stats about the exercises
+
+** OPTIONAL: Pagination to display the exercises
+
+** OPTIONAL: Add searching functionality for searching an exercise
+
+* New
+
+** Add an admin user who can see, edit and delete all the exercises
+
+** Add a =report a bug= feature which will send an email from the app
