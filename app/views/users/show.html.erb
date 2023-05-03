@@ -4,19 +4,25 @@
 
 <%= link_to "Back to all your exercises", exercises_path, class: "mx-3" %>
 
+<% if current_user.profile_picture.attached? %>
+  <br><%= image_tag current_user.profile_picture, alt: 'Profile picture', size: '240x240', class: "img-thumbnail mx-auto d-block my-4" %>
+<% else %>
+  <br><%= image_tag 'https://picsum.photos/240', alt: 'Profile picture', size: '240x240', class: "img-thumbnail mx-auto d-block my-4" %>
+<% end %>
+
 <section class="d-flex justify-content-center">
-  <h2 class="mx-3 display-6">Email: </h2>
-  <h2 class="display-6"><%= current_user.email %></h2>
+  <h2 class="mx-3 display-7">Email: </h2>
+  <h2 class="display-7"><%= current_user.email %></h2>
 </section>
 
 <section class="d-flex justify-content-center">
-  <h2 class="mx-3 display-6">Username: </h2>
-  <h2 class="display-6"><%= current_user.username %></h2>
+  <h2 class="mx-3 display-7">Username: </h2>
+  <h2 class="display-7"><%= current_user.username %></h2>
 </section>
 
 <section class="d-flex justify-content-center">
-  <h2 class="mx-3 display-6">Phone number: </h2>
-  <h2 class="display-6"><%= current_user.phone_number %></h2>
+  <h2 class="mx-3 display-7">Phone number: </h2>
+  <h2 class="display-7"><%= current_user.phone_number %></h2>
 </section>
 
 <%= link_to edit_profile_path(current_user), class: "btn btn-primary mx-3" do %>
