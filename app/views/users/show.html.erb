@@ -7,6 +7,16 @@
   <h2 class="display-6"><%= current_user.email %></h2>
 </section>
 
+<section class="d-flex justify-content-center">
+  <h2 class="mx-3 display-6">Username: </h2>
+  <h2 class="display-6"><%= current_user.username %></h2>
+</section>
+
+<section class="d-flex justify-content-center">
+  <h2 class="mx-3 display-6">Phone number: </h2>
+  <h2 class="display-6"><%= current_user.phone_number %></h2>
+</section>
+
 <%= link_to edit_profile_path(current_user), class: "btn btn-primary mx-3" do %>
   Edit <i class="bi bi-pencil"></i>
 <% end %>
