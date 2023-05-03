@@ -4,6 +4,12 @@
 
 <h1 class="mx-3">Welcome <%= current_user.email %></h1>
 
+<% if current_user.profile_picture.attached? %>
+  <br><%= image_tag current_user.profile_picture, alt: 'Profile picture', size: '240x240', class: "img-thumbnail mx-auto d-block my-4" %>
+<% else %>
+  <br><%= image_tag 'https://picsum.photos/240', alt: 'Profile picture', size: '240x240', class: "img-thumbnail mx-auto d-block my-4" %>
+<% end %>
+
 <%= link_to 'Profile', profile_path(current_user), class: "mx-3" %>
 
 <h2 class="mx-3 my-3">Your exercises: </h2>
