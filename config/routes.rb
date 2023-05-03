@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post 'users/create'
   get 'users/:id', to: 'users#show', as: :profile
   get 'users/:id/edit', to: 'users#edit', as: :edit_profile
-  post 'users/:id', to: 'users#update', as: :update_profile
+  put 'users/:id', to: 'users#update', as: :update_profile
   resources :exercises
   get 'sessions/new'
   post 'sessions/create'

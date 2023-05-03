@@ -20,16 +20,20 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
   end
 
   def update
-    @user = current_user
+    if current_user.update(user_params)
+      redirect_to profile_path, notice: "Your profile was successfully updated"
+    else
+      flash[:error] = "Something went wrong"
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, :username, :phone_number)
   end
 end
