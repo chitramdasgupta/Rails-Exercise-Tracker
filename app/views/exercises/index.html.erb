@@ -26,6 +26,7 @@
     <div class="card-body">
       <h5 class="card-title"><%= e.name %></h5>
       <p class="card-text"><%= e.calories %></p>
+      <p class="card-text"><%= time_ago_in_words(e.updated_at) %> ago</p>
 
       <%= link_to e, class: "btn btn-primary" do %>
         Show <i class="bi bi-arrow-right-circle"></i>

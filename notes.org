@@ -16,16 +16,6 @@
 
 * User profile
 
-** There should be a profile page having:
-
-*** profile picture
-
-*** Username
-
-*** Phone number
-
-** There should also be an edit profile page
-
 ** Allow edit password
 
 * Exercises
