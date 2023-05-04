@@ -20,8 +20,6 @@
 
 * Exercises
 
-** Display the last_updated value
-
 ** Make a page for quick stats about the exercises
 
 ** OPTIONAL: Pagination to display the exercises

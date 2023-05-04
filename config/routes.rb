@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bugs, only: [:new, :create]
+
   get 'users/new'
   post 'users/create'
   get 'users/:id', to: 'users#show', as: :profile
