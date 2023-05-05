@@ -66,7 +66,10 @@ class ExercisesController < ApplicationController
   def quick_stats
     if current_user.member?
       @exercises = current_user.exercises
-    elsif current_user.trainer? || current_user.admin?
+    elsif current_user.trainer?
+      trainer = User.find(current_user.id)
+      @exercises = Exercise.where(user_id: trainer.members.pluck(:id))
+    else
       @exercises = Exercise.all
     end
 
