@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show', as: :profile
   get 'users/:id/edit', to: 'users#edit', as: :edit_profile
   put 'users/:id', to: 'users#update', as: :update_profile
-  resources :exercises
+  resources :exercises do
+    collection do
+      get :quick_stats
+    end
+  end
+  # get 'exercises/quick_stats'
   get 'sessions/new'
   post 'sessions/create'
   get 'sessions/destroy'

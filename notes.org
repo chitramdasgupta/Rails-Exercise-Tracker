@@ -16,11 +16,7 @@
 
 * User profile
 
-** Allow edit password
-
 * Exercises
-
-** Make a page for quick stats about the exercises
 
 ** OPTIONAL: Pagination to display the exercises
 

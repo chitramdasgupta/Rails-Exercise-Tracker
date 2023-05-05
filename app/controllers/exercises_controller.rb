@@ -45,6 +45,13 @@ class ExercisesController < ApplicationController
     redirect_to exercises_path
   end
 
+  def quick_stats
+    @exercises = current_user.exercises
+
+    @exercise_count = @exercises.count
+    @total_calories = @exercises.sum(:calories)
+  end
+
   private
 
   def exercise_params

@@ -14,7 +14,9 @@
 
 <h2 class="mx-3 my-3">Your exercises: </h2>
 
-<%= link_to new_exercise_path, class: "btn btn-info mx-4 my-1" do %>
+<%= link_to 'Quick stats', quick_stats_exercises_path, class: "mx-3" %> <br>
+
+<%= link_to new_exercise_path, class: "btn btn-info mx-4 my-2" do %>
   New exercise <i class="bi bi-plus-circle-dotted"></i>
 <% end %>
 
