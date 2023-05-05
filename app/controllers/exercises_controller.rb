@@ -1,6 +1,12 @@
 class ExercisesController < ApplicationController
+  before_action :member_authorization, only: [:new, :create, :edit, :update]
+
   def index
-    @exercises = current_user.exercises
+    if current_user.member?
+      @exercises = current_user.exercises
+    elsif current_user.trainer? || current_user.admin?
+      @exercises = Exercise.all
+    end
   end
 
   def new
@@ -20,7 +26,11 @@ class ExercisesController < ApplicationController
   end
 
   def show
-    @exercise = current_user.exercises.find(params[:id])
+    if current_user.member?
+      @exercise = current_user.exercises.find(params[:id])
+    elsif current_user.trainer? || current_user.admin?
+      @exercise = Exercise.find_by(params[:id])
+    end
   end
 
   def edit
@@ -39,14 +49,23 @@ class ExercisesController < ApplicationController
   end
 
   def destroy
-    @exercise = current_user.exercises.find(params[:id])
+    if current_user.member?
+      @exercise = current_user.exercises.find(params[:id])
+    elsif current_user.trainer? || current_user.admin?
+      @exercise = Exercise.find(params[:id])
+    end
+    # @exercise = current_user.exercises.find(params[:id])
     @exercise.destroy
     flash[:notice] = "The exercise was deleted"
     redirect_to exercises_path
   end
 
   def quick_stats
-    @exercises = current_user.exercises
+    if current_user.member?
+      @exercises = current_user.exercises
+    elsif current_user.trainer? || current_user.admin?
+      @exercises = Exercise.all
+    end
 
     @exercise_count = @exercises.count
     @total_calories = @exercises.sum(:calories)

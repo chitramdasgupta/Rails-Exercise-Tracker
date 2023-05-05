@@ -12,12 +12,20 @@
 
 <%= link_to 'Profile', profile_path(current_user), class: "mx-3" %>
 
-<h2 class="mx-3 my-3">Your exercises: </h2>
+<% if current_user.trainer? %>
+  <h2 class="mx-3 my-3">Your trainees' exercises: </h2>
+<% elsif current_user.admin? %>
+  <h2 class="mx-3 my-3">All trainees' exercises: </h2>
+<% else %>
+  <h2 class="mx-3 my-3">Your exercises: </h2>
+<% end %>
 
 <%= link_to 'Quick stats', quick_stats_exercises_path, class: "mx-3" %> <br>
 
-<%= link_to new_exercise_path, class: "btn btn-info mx-4 my-2" do %>
-  New exercise <i class="bi bi-plus-circle-dotted"></i>
+<% if current_user.member? %>
+  <%= link_to new_exercise_path, class: "btn btn-info mx-4 my-2" do %>
+    New exercise <i class="bi bi-plus-circle-dotted"></i>
+  <% end %>
 <% end %>
 
 <% @exercises&.each do |e| %>
@@ -26,6 +34,9 @@
       Exercise
     </div>
     <div class="card-body">
+      <% unless current_user.member? %>
+        <h5><%= e.user.email %></h5>
+      <% end %>
       <h5 class="card-title"><%= e.name %></h5>
       <p class="card-text"><%= e.calories %></p>
       <p class="card-text"><%= time_ago_in_words(e.updated_at) %> ago</p>
@@ -34,8 +45,10 @@
         Show <i class="bi bi-arrow-right-circle"></i>
       <% end %>
 
-      <%= link_to edit_exercise_path(e), class: "btn btn-primary" do %>
-        Edit <i class="bi bi-pencil"></i>
+      <% if current_user.member? %>
+        <%= link_to edit_exercise_path(e), class: "btn btn-primary" do %>
+          Edit <i class="bi bi-pencil"></i>
+        <% end %>
       <% end %>
 
       <%= link_to exercise_path(e), class: "btn btn-danger", data:{

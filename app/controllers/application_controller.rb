@@ -2,23 +2,18 @@ class ApplicationController < ActionController::Base
   before_action :require_authorization
   helper_method :current_user
   helper_method :logged_in?
-  helper_method :trainer?
-  helper_method :admin?
+  helper_method :member_authorization
 
   def current_user
     User.find_by(id: session[:user_id])
   end
 
-  def trainer?
-    logged_in? && current_user.trainer?
-  end
-
-  def admin?
-    logged_in? && current_user.admin?
-  end
-
   def logged_in?
     !current_user.nil?
+  end
+
+  def member_authorization
+    redirect_to exercises_path, notice: "You are not authorized to view that page." unless current_user.member?
   end
 
   def require_authorization

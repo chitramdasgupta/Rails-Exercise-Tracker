@@ -1,6 +1,9 @@
 <%= link_to "Back to all exercises", exercises_path, class: "mx-3" %>
 
-<h1 class="display-2 mx-3 my-4"><%= @exercise.name %></h5>
+<h1 class="display-2 mx-3 my-4"><%= @exercise.name %></h1>
+<% unless current_user.member? %>
+  <h5 class="mx-3 my-4" ><%= @exercise.user.email %></h5>
+<% end %>
 <span class="display-4 mx-4"><%= @exercise.calories %></span>
 <span>Calories</span><br>
 <span class="display-4 mx-4"><%= time_ago_in_words(@exercise.updated_at) %></span>
@@ -10,3 +13,5 @@
 <%= link_to edit_exercise_path(@exercise), class: "btn btn-primary mx-3 my-3" do %>
   Edit <i class="bi bi-pencil"></i>
 <% end %>
+
+<br><br>
