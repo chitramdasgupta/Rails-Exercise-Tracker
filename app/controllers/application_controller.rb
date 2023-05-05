@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_authorization
-    redirect_to sessions_new_path unless logged_in?
+    redirect_to sessions_new_path, notice: "Please log in." unless logged_in?
   end
 end

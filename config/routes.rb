@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'passwords/:id/edit', to: 'passwords#edit', as: :edit_password
+  patch 'passwords/update', to: 'passwords#update', as: :update_password
   resources :bugs, only: [:new, :create]
 
   get 'users/new'
