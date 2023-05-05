@@ -14,3 +14,4 @@ User.create(email: '123@gmail.com', password: '123', password_confirmation: '123
 
 User.create(email: 'trainer01@gmail.com', password: 't01', password_confirmation: 't01', role: 'trainer')
 
+User.create(email: 'admin@gmail.com', password: 'admin', password_confirmation: 'admin', role: 'admin')

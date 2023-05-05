@@ -23,9 +23,10 @@
 <%= link_to 'Quick stats', quick_stats_exercises_path, class: "mx-3" %> <br>
 
 <% if current_user.member? %>
-  <%= link_to new_exercise_path, class: "btn btn-info mx-4 my-2" do %>
+  <%= link_to new_exercise_path, class: "btn btn-info mx-3 my-2" do %>
     New exercise <i class="bi bi-plus-circle-dotted"></i>
   <% end %>
+  <br><br>
 <% end %>
 
 <% @exercises&.each do |e| %>
