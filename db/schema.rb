@@ -62,7 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_144730) do
     t.string "username"
     t.string "phone_number"
     t.string "profile_picture"
-    t.boolean "admin"
     t.integer "role"
   end
 
