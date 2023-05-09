@@ -3,13 +3,14 @@ class ExercisesController < ApplicationController
 
   def index
     if current_user.member?
-      @exercises = current_user.exercises.page(params[:page])
+      @q = current_user.exercises.ransack(params[:q])
     elsif current_user.trainer?
       trainer = User.find(current_user.id)
-      @exercises = Exercise.where(user_id: trainer.members.pluck(:id)).page(params[:page])
+      @q = Exercise.where(user_id: trainer.members.pluck(:id)).ransack(params[:q])
     else
-      @exercises = Exercise.all.page(params[:page])
+      @q = Exercise.ransack(params[:q])
     end
+    @exercises = @q.result(distinct: true).page(params[:page])
   end
 
   def new
