@@ -3,12 +3,12 @@ class ExercisesController < ApplicationController
 
   def index
     if current_user.member?
-      @exercises = current_user.exercises
+      @exercises = current_user.exercises.page(params[:page])
     elsif current_user.trainer?
       trainer = User.find(current_user.id)
-      @exercises = Exercise.where(user_id: trainer.members.pluck(:id))
+      @exercises = Exercise.where(user_id: trainer.members.pluck(:id)).page(params[:page])
     else
-      @exercises = Exercise.all
+      @exercises = Exercise.all.page(params[:page])
     end
   end
 
