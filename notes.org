@@ -13,17 +13,3 @@
 *** Send an email with password reset link (valid for 30 minutes)
 
 *** Clicking the link with take us to a page with new password and confirmation inputs
-
-* User profile
-
-* Exercises
-
-** OPTIONAL: Pagination to display the exercises
-
-** OPTIONAL: Add searching functionality for searching an exercise
-
-* New
-
-** Add an admin user who can see, edit and delete all the exercises
-
-** Add a =report a bug= feature which will send an email from the app
