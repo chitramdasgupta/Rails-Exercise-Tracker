@@ -8,6 +8,6 @@ class BugReportMailer < ApplicationMailer
   def submit_bug_report(user, bug)
     @user = user
     @bug = bug
-    mail to: 'admin@exercisetracker.com', subject: "A new bug report"
+    mail to: 'admin@example.com', subject: "A new bug report"
   end
 end
